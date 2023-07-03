@@ -23,13 +23,6 @@ public class PeopleController {
         return "people";
     }
 
-    @GetMapping("/{id}")
-
-    public String showUser(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.show(id));
-        return "show";
-    }
-
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user) {
         return "new";
@@ -57,7 +50,7 @@ public class PeopleController {
 
     @DeleteMapping("/edit/{id}")
     public String delete(@PathVariable("id") int id, @ModelAttribute("user") User user) {
-        userService.removeUserById(user);
+        userService.removeUser(user);
         return "redirect:/";
     }
 

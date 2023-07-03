@@ -22,7 +22,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void removeUserById(User user) {
+    public void removeUser(User user) {
         entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
 
     }
@@ -41,8 +41,6 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void update(User user) {
-
-
         entityManager.merge(user);
     }
 
